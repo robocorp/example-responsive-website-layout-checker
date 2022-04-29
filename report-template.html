@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Responsive website layout checker</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 2em;
+        }
+
+        h1 {
+            font-size: 1.3em;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #222222;
+            font-size: 1.1em;
+            font-weight: normal;
+            margin: 2em 0 1em 0;
+        }
+
+        img {
+            border: 1px solid #222222;
+        }
+
+        #report {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .device {
+            flex: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Responsive website layout checker</h1>
+    <a href="${url}">${url}</a>
+    <section id="report">
+        ${entries}
+    </section>
+</body>
+
+</html>
