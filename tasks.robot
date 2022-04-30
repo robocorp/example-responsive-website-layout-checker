@@ -80,7 +80,7 @@ Capture layouts
         ${image_path}=
         ...    Set Variable
         ...    ${OUTPUT_DIR}${/}screenshots${/}${image_name}
-        Take Screenshot    ${image_path}    fileType=${file_type}
+        Take Screenshot    ${image_path}    fullPage=True    fileType=${file_type}
         Set To Dictionary    ${viewport}    image=${image_path}.${file_type}
         Log To Console
         ...    ${viewport}[device_name]: ${viewport}[width] x ${viewport}[height]
