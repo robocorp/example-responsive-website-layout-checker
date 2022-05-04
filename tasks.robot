@@ -1,16 +1,19 @@
 *** Settings ***
-Documentation     Responsive website layout checker.
-...               Reports website layout in different viewport sizes.
-Library           Collections
-Library           RPA.Browser.Playwright
-Library           RPA.Browser.Selenium    auto_close=${FALSE}
-Library           RPA.Dialogs
-Library           RPA.FileSystem
-Library           RPA.PDF
-Library           String
+Documentation       Responsive website layout checker.
+...                 Reports website layout in different viewport sizes.
+
+Library             Collections
+Library             RPA.Browser.Playwright
+Library             RPA.Browser.Selenium    auto_close=${FALSE}
+Library             RPA.Dialogs
+Library             RPA.FileSystem
+Library             RPA.PDF
+Library             String
+
 
 *** Variables ***
-${REPORT_PATH}=    ${OUTPUT_DIR}${/}report.html
+${REPORT_PATH}=     ${OUTPUT_DIR}${/}report.html
+
 
 *** Tasks ***
 Report website layout in different viewport sizes
@@ -19,12 +22,13 @@ Report website layout in different viewport sizes
     ${viewports}=    Capture layouts    ${url}    ${viewports}
     Create layout report    ${url}    ${viewports}
 
+
 *** Keywords ***
 Get website URL
     Add text input    url    label=Website URL
     ${result}=    Run dialog    title=Responsive website layout checker
     Log To Console    ${\n}${result.url}
-    [Return]    ${result.url}
+    RETURN    ${result.url}
 
 Get viewports by unique width
     New Page    https://yesviz.com/viewport/
@@ -52,7 +56,7 @@ Get viewports by unique width
             Append To List    ${viewports}    ${device_viewport}
         END
     END
-    [Return]    ${viewports}
+    RETURN    ${viewports}
 
 Format device name
     [Arguments]    ${device_name}
@@ -65,7 +69,7 @@ Format device name
     ...    (
     ...    )
     ...    ${SPACE}
-    [Return]    ${formatted_device_name}
+    RETURN    ${formatted_device_name}
 
 Capture layouts
     [Arguments]    ${url}    ${viewports}
@@ -85,7 +89,7 @@ Capture layouts
         Log To Console
         ...    ${viewport}[device_name]: ${viewport}[width] x ${viewport}[height]
     END
-    [Return]    ${viewports}
+    RETURN    ${viewports}
 
 Create layout report
     [Arguments]    ${url}    ${viewports}
@@ -112,4 +116,4 @@ Generate report entry
     ...    <h2>${viewport}[device_name]: ${viewport}[width] x ${viewport}[height]</h2>
     ...    <img src="${viewport}[image]" />
     ...    </div>
-    [Return]    ${html}
+    RETURN    ${html}
