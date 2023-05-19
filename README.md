@@ -2,7 +2,7 @@
 
 Captures screenshots of the given website in multiple [common viewport sizes](https://yesviz.com/viewport/) and creates an HTML report.
 
-> This project uses a deprecated library [RPA.Dialogs](https://robocorp.com/docs/libraries/rpa-framework/rpa-dialogs) that will be replaced with [RPA.Assistant](https://robocorp.com/docs/libraries/rpa-framework/rpa-assistant). You can find an example detailing the new library [here](https://robocorp.com/portal/robot/robocorp/template-assistant).
+> This project uses a deprecated library [RPA.Dialogs](https://robocorp.com/docs/libraries/rpa-framework/rpa-dialogs) that has been replaced by [RPA.Assistant](https://robocorp.com/docs/libraries/rpa-framework/rpa-assistant). You can find an example detailing the new library [here](https://robocorp.com/portal/robot/robocorp/template-assistant).
 
 <img src="images/url-dialog.png" style="margin-bottom:20px">
 
